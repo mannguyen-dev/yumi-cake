@@ -2,9 +2,7 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const task = require("../models/task");
 const Task = require("../models/task");
-const { bool } = require("sharp");
 
 const userSchema = new mongoose.Schema(
     {
@@ -53,30 +51,30 @@ const userSchema = new mongoose.Schema(
         birthday: {
             day: {
                 type: Number,
-                // default: 0,
-                // validate(value) {
-                //     if (value < 0) {
-                //         throw new Error("Day must be a positive number");
-                //     }
-                // },
+                default: 0,
+                validate(value) {
+                    if (value < 0) {
+                        throw new Error("Day must be a positive number");
+                    }
+                },
             },
             month: {
                 type: Number,
-                // default: 0,
-                // validate(value) {
-                //     if (value < 0) {
-                //         throw new Error("Month must be a positive number");
-                //     }
-                // },
+                default: 0,
+                validate(value) {
+                    if (value < 0) {
+                        throw new Error("Month must be a positive number");
+                    }
+                },
             },
             year: {
                 type: Number,
-                // default: 0,
-                // validate(value) {
-                //     if (value < 0) {
-                //         throw new Error("Year must be a positive number");
-                //     }
-                // },
+                default: 0,
+                validate(value) {
+                    if (value < 0) {
+                        throw new Error("Year must be a positive number");
+                    }
+                },
             },
         },
 
