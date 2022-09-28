@@ -1,7 +1,9 @@
 # yumi-cake
 
 1. Vào thư mục backend để cái npm
+
   cd backend
+  
   npm i
   
 2. Tạo thư mục 'config' trong backend
