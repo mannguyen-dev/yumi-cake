@@ -4,6 +4,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const task = require("../models/task");
 const Task = require("../models/task");
+const { bool } = require("sharp");
 
 const userSchema = new mongoose.Schema(
     {
@@ -24,35 +25,61 @@ const userSchema = new mongoose.Schema(
                 }
             },
         },
+        gender: {
+            type: String,
+            trim: true,
+            lowercase: true,
+            validate(value) {
+                if (
+                    !(
+                        validator.equals(value, "nam") ||
+                        validator.equals(value, "nu") ||
+                        validator.equals(value, "khac")
+                    )
+                ) {
+                    throw new Error("Gender is invalid!");
+                }
+            },
+        },
+        phone: {
+            type: String,
+            trim: true,
+            validate(value) {
+                if (!validator.isNumeric(value)) {
+                    throw new Error("Phone is invalid!");
+                }
+            },
+        },
         birthday: {
             day: {
                 type: Number,
-                default: 0,
-                validate(value) {
-                    if (value < 0) {
-                        throw new Error("Day must be a positive number");
-                    }
-                },
-                month: {
-                    type: Number,
-                    default: 0,
-                    validate(value) {
-                        if (value < 0) {
-                            throw new Error("Month must be a positive number");
-                        }
-                    },
-                },
-                year: {
-                    type: Number,
-                    default: 0,
-                    validate(value) {
-                        if (value < 0) {
-                            throw new Error("Year must be a positive number");
-                        }
-                    },
-                },
+                // default: 0,
+                // validate(value) {
+                //     if (value < 0) {
+                //         throw new Error("Day must be a positive number");
+                //     }
+                // },
+            },
+            month: {
+                type: Number,
+                // default: 0,
+                // validate(value) {
+                //     if (value < 0) {
+                //         throw new Error("Month must be a positive number");
+                //     }
+                // },
+            },
+            year: {
+                type: Number,
+                // default: 0,
+                // validate(value) {
+                //     if (value < 0) {
+                //         throw new Error("Year must be a positive number");
+                //     }
+                // },
             },
         },
+
         password: {
             type: String,
             required: true,
