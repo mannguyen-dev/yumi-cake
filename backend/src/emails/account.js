@@ -6,8 +6,8 @@ const sendWelcomeEmail = (email, name) => {
     sgMail.send({
         to: email,
         from: "mannguyen.dev@gmail.com",
-        subject: "Thanks for join in!",
-        html: `<h1>Welcome to the app, ${name}! Let me know how to get along with the app<h1>`,
+        subject: "Cảm ơn bạn đã tham gia!",
+        html: `<h1>Chào mừng bạn đến với YumiCake, ${name}. Hãy tận dụng những ưu đãi hấp dẫn đang chờ bạn!</h1><p>Truy cập ngay: <a href="#">link<a></p>`,
     });
 };
 
@@ -15,8 +15,8 @@ const sendCancelationEmail = (email, name) => {
     sgMail.send({
         to: email,
         from: "mannguyen.dev@gmail.com",
-        subject: "Sorry to see you go!",
-        html: `<h1>Hope you come back, ${name}. Goodbye!<h1>`,
+        subject: "Thật tiếc khi bạn rời khỏi!",
+        html: `<h1>Hi vọng bạn có thể quay lại, ${name}. Chào tạm biệt!</h1>`,
     });
 };
 
