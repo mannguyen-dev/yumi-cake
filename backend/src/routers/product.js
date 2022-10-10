@@ -2,6 +2,8 @@ const express = require("express");
 const router = new express.Router();
 const auth = require("../middleware/auth");
 const Product = require("../models/product");
+const Order = require("../models/order");
+const mongoose = require("mongoose");
 // const multer = require("multer");
 // const sharp = require("sharp");
 
@@ -33,6 +35,24 @@ router.post("/products", async (req, res) => {
     }
 });
 
+router.post("/products/many", async (req, res) => {
+    const products = req.body;
+
+    const productsAdded = [];
+
+    try {
+        products.forEach(async (item) => {
+            const product = new Product({
+                ...item,
+            });
+            await product.save();
+        });
+        res.send({ numberItem: products.length, products });
+    } catch (error) {
+        res.status(400).send({ error });
+    }
+});
+
 // UPLOAD image to product (no longer use)
 // router.post(
 //     "/products/:id/images",
@@ -56,10 +76,10 @@ router.post("/products", async (req, res) => {
 //     }
 // );
 
-// GET /tasks?completed=true
+// GET /products?name=abc
 // limit skip
-// GET /tasks?limit=10&skip
-// GET /tasks?sortBy=createdAt:asc(desc)
+// GET /products?limit=10&skip
+// GET /products?sortBy=createdAt:asc(desc)
 router.get("/products", async (req, res) => {
     const match = {};
     const sort = {};
@@ -95,8 +115,31 @@ router.get("/products", async (req, res) => {
     }
 });
 
-//GET product by product id
-router.get("/products/:id", async (req, res) => {
+//Get trending
+router.get("/products/trending", async (req, res) => {
+    const match = {};
+    const sort = { createdAt: -1 };
+
+    let limit = 20;
+    if (req.query.limit) {
+        limit = parseInt(req.query.limit);
+    }
+
+    let skip = 0;
+    if (req.query.skip) {
+        skip = parseInt(req.query.skip);
+    }
+
+    try {
+        const products = await Product.find(match).limit(limit).skip(skip).sort(sort);
+        res.send(products);
+    } catch (e) {
+        res.status(500).send();
+    }
+});
+
+//GET product detail by product id
+router.get("/products/detail/:id", async (req, res) => {
     const _id = req.params.id;
 
     try {
@@ -200,6 +243,26 @@ router.get("/categories", async (req, res) => {
         res.send({ categories });
     } catch (e) {
         res.status(500).send();
+    }
+});
+
+const getProduct = async (id) => {
+    return await Product.findById(id);
+};
+
+// GET distinct product
+router.get("/products/popular", async (req, res) => {
+    try {
+        const details = await Order.distinct("details.product_id");
+
+        const promises = details.map(async (item) => {
+            const res = await Product.findById(mongoose.Types.ObjectId(item));
+            return res;
+        });
+        const products = await Promise.all(promises);
+        res.send(products);
+    } catch (e) {
+        res.status(500).send(e);
     }
 });
 
