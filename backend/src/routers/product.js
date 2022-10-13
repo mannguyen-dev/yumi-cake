@@ -193,4 +193,14 @@ router.delete("/products/:id", auth, async (req, res) => {
     }
 });
 
+// GET all categories
+router.get("/categories", async (req, res) => {
+    try {
+        const categories = await Product.distinct("categories");
+        res.send({ categories });
+    } catch (e) {
+        res.status(500).send();
+    }
+});
+
 module.exports = router;
