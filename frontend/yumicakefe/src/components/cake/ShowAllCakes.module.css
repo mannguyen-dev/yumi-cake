@@ -1,0 +1,24 @@
+.container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    width: 1140px;
+    margin: auto;
+    grid-row-gap: 50px;
+}
+
+.pagePagination {
+    display: flex;
+    margin: 30px auto 0;
+    gap: 12px;
+    justify-content: center;
+}
+
+.pagePagination button {
+    height: 36px;
+    width: 140px;
+    background-color: transparent;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    font-size: 18px;
+}

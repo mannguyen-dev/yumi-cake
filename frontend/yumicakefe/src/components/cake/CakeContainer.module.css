@@ -1,0 +1,38 @@
+.cakeContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1140px;
+    margin: auto;
+    position: relative;
+}
+
+.arrow {
+    position: absolute;
+    background-color: #ced4da;
+    height: 60px;
+    width: 36px;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.arrow button:hover,
+.arrow button:active {
+    background-color: #fff4e6;
+}
+
+.cakeContainer .left {
+    left: 0px;
+}
+
+.cakeContainer .right {
+    right: 0px;
+}
+
+.arrow button {
+    background-color: #ced4da;
+    border: none;
+    height: inherit;
+    width: inherit;
+    border-radius: inherit;
+}
