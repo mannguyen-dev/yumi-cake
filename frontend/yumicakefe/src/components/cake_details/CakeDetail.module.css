@@ -1,0 +1,7 @@
+.cakeDetail {
+    display: flex;
+    justify-content: space-around;
+    /* gap: 12px; */
+    width: 1140px;
+    margin: auto;
+}

@@ -5,7 +5,6 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import NotFound from "./Pages/NotFound";
 import Layout from "./components/Layout/Layout";
 import ShowAllCakes from "./components/cake/ShowAllCake";
-import { sendCartData, fetchCartData } from "./store/cart-actions";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import Modal from "./components/UI/Modal";
@@ -13,8 +12,7 @@ import { uiActions } from "./store/ui-slice";
 import User from "./components/user/User";
 import Cart from "./components/Cart/Cart";
 import LoginForm from "./components/user/LoginForm";
-
-let isInitial = true;
+import CakeDetail from "./components/cake_details/CakeDetail";
 
 function App() {
     const dispatch = useDispatch();
@@ -23,23 +21,6 @@ function App() {
     const showUserPage = useSelector((state) => state.ui.showUserPage);
     const cart = useSelector((state) => state.cart);
     const user = useSelector((state) => state.user.user);
-
-    console.log(user);
-
-    useEffect(() => {
-        dispatch(fetchCartData());
-    }, [dispatch]);
-
-    useEffect(() => {
-        if (isInitial) {
-            isInitial = false;
-            return;
-        }
-
-        if (cart.changed) {
-            dispatch(sendCartData(cart));
-        }
-    }, [cart, dispatch]);
 
     const backdropHandler = () => {
         dispatch(uiActions.setUnvisible());
@@ -68,8 +49,8 @@ function App() {
                     <Route path="/products/cat/:category">
                         <Home />
                     </Route>
-                    <Route path="/products/id/:quoteId">
-                        <Home />
+                    <Route path="/products/id/:cakeId">
+                        <CakeDetail />
                     </Route>
                     <Route path="/user">
                         <Home />

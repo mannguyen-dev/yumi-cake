@@ -5,6 +5,7 @@ const cartSlide = createSlice({
     initialState: {
         items: [],
         totalQuantity: 0,
+        location: null,
         changed: false,
     },
     reducers: {
@@ -14,16 +15,26 @@ const cartSlide = createSlice({
         },
         addItemToCart(state, action) {
             const newItem = action.payload;
-            const existingItem = state.items.find((item) => item.id === newItem.id);
+            console.log(newItem, state.items);
+            const existingItem = state.items.find((item) => {
+                return item.id === newItem.id && item.message === newItem.message && item.weight === newItem.weight;
+            });
             state.totalQuantity++;
             state.changed = true;
+
+            if (!newItem.location || newItem.location !== "") {
+                state.location = newItem.location;
+            }
+
             if (!existingItem) {
                 state.items.push({
-                    id: newItem.id,
+                    id: newItem.cake._id,
                     price: newItem.price,
+                    weight: newItem.weight,
+                    message: newItem.message,
                     quantity: 1,
                     totalPrice: newItem.price,
-                    name: newItem.title,
+                    name: newItem.cake.name,
                 });
             } else {
                 existingItem.quantity++;
@@ -31,12 +42,17 @@ const cartSlide = createSlice({
             }
         },
         removeItemFromCart(state, action) {
-            const id = action.payload;
-            const existingItem = state.items.find((item) => item.id === id);
+            const rmItem = action.payload;
+            const existingItem = state.items.find((item) => {
+                return item.id === rmItem.id && item.message === rmItem.message && item.weight === rmItem.weight;
+            });
             state.totalQuantity--;
             state.changed = true;
             if (existingItem.quantity === 1) {
-                state.items = state.items.filter((item) => item.id !== id);
+                state.items = state.items.filter(
+                    (item) =>
+                        !(item.id === rmItem.id && item.message === rmItem.message && item.weight === rmItem.weight)
+                );
             } else {
                 existingItem.quantity--;
                 existingItem.totalPrice -= existingItem.price;

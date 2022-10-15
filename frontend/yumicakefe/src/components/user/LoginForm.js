@@ -49,7 +49,6 @@ const LoginForm = (props) => {
         }
 
         try {
-            // loginUser({ email: enteredEmail, password: enteredPassword });
             const response = UserDataService.login(enteredEmail, enteredPassword);
 
             const responseData = await Promise.resolve(response);

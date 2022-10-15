@@ -9,7 +9,7 @@
     justify-content: space-around;
     align-items: center;
     border-radius: 16px;
-    width: 68px;
+    width: 80px;
     margin-top: 8px;
 }
 
@@ -27,27 +27,5 @@
 .icon {
     width: 25px;
     height: 25px;
-    margin: 0.5rem 0.5rem 0.5rem;
-}
-
-.bump {
-    animation: bump 300ms ease-out;
-}
-
-@keyframes bump {
-    0% {
-        transform: scale(1);
-    }
-    10% {
-        transform: scale(0.9);
-    }
-    30% {
-        transform: scale(1.1);
-    }
-    50% {
-        transform: scale(1.15);
-    }
-    100% {
-        transform: scale(1);
-    }
+    margin: 0.5rem 0.1rem 0.4rem 0.5rem;
 }

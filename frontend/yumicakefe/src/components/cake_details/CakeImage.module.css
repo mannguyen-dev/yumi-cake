@@ -1,0 +1,27 @@
+.imagesContainer {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.smallImage {
+    display: flex;
+    gap: 10px;
+}
+
+.smallImage img {
+    /* height: 120px; */
+    /* width: 120px; */
+    border-radius: 4px;
+    border: 1px solid #adb5bd;
+}
+
+.bigImage img {
+    margin-bottom: 8px;
+    border-radius: 8px;
+    border: 1px solid #adb5bd;
+}
+
+.smallImage button:hover {
+    opacity: 0.3;
+}

@@ -1,26 +1,32 @@
 import classes from "./CartItem.module.css";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
+import { formatCurrency } from "../../utility/FormatCurrency";
 
 const CartItem = (props) => {
-    const { title, quantity, total, price, id } = props.item;
+    const { title, quantity, total, price, id, weight, message } = props.item;
 
     const dispatch = useDispatch();
 
     const removeItemHandler = () => {
-        dispatch(cartActions.removeItemFromCart(id));
+        dispatch(cartActions.removeItemFromCart({ id, weight, message }));
     };
 
     const addItemHandler = () => {
-        dispatch(cartActions.addItemToCart({ id, title, price }));
+        dispatch(cartActions.addItemToCart({ id, title, price, weight, message }));
     };
+
+    const titleFixed = title.length < 22 ? `${title}` : `${title.slice(0, 22)}...`;
 
     return (
         <li className={classes.item}>
             <header>
-                <h3>{title}</h3>
+                <h3>{titleFixed}</h3>
                 <div className={classes.price}>
-                    ${total.toFixed(2)} <span className={classes.itemprice}>(${price.toFixed(2)}/item)</span>
+                    {formatCurrency.format(total)}{" "}
+                    <span className={classes.itemprice}>
+                        ({formatCurrency.format(price)} / {weight.toFixed(1)} kg)
+                    </span>
                 </div>
             </header>
             <div className={classes.details}>
@@ -32,6 +38,7 @@ const CartItem = (props) => {
                     <button onClick={addItemHandler}>+</button>
                 </div>
             </div>
+            <div>Lời nhắn: {message ? message : "Không có"}</div>
         </li>
     );
 };

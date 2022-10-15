@@ -13,11 +13,13 @@ const MainNavigation = () => {
     const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
 
     const dispatch = useDispatch();
-    const loginToggleHandler = () => {
+    const loginToggleHandler = (event) => {
+        event.preventDefault();
         dispatch(uiActions.showLogin());
     };
 
-    const logoutToggleHandler = () => {
+    const logoutToggleHandler = (event) => {
+        event.preventDefault();
         dispatch(userActions.logout());
     };
 

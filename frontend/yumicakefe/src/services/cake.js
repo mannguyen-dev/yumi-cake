@@ -17,7 +17,7 @@ class CakeDataService {
     }
 
     get(id) {
-        return axios.get(`${URL}/products/${id}`);
+        return axios.get(`${URL}/products/id/${id}`);
     }
 
     find(query, by = "name", limit = 20, skip = 0) {
