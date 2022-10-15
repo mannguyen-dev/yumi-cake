@@ -2,7 +2,7 @@ import useInput from "../../hooks/use-input";
 import classes from "./LoginForm.module.css";
 import loginImg from "../../assets/loginCake.jpg";
 import { uiActions } from "../../store/ui-slice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Fragment, useState } from "react";
 import { userActions } from "../../store/user-slice";
 import UserDataService from "../../services/user";
@@ -13,7 +13,6 @@ const validatePassword = (value) => value.length >= 8;
 
 const LoginForm = (props) => {
     const dispatch = useDispatch();
-    const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
 
     const [error, setError] = useState(null);
     const [isSignup, setIsSignup] = useState(false);
@@ -117,7 +116,11 @@ const LoginForm = (props) => {
                         </div>
                         {error && <p className={classes["error-text"]}>{error}</p>}
                         <p>
-                            Nếu chưa có tài khoản, hãy <a onClick={signupHandler}>Đăng ký</a> ngay!
+                            Nếu chưa có tài khoản, hãy{" "}
+                            <button onClick={signupHandler} className={classes.btnSwitch}>
+                                Đăng ký
+                            </button>{" "}
+                            ngay!
                         </p>
                     </div>
                 </form>

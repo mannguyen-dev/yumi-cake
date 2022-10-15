@@ -2,8 +2,6 @@ import CartIcon from "../../../assets/CartIcon";
 
 import classes from "./HeaderCartButton.module.css";
 
-import { useContext, useEffect, useState } from "react";
-// import CartContext from "../../store/cart-context";
 import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../../store/ui-slice";
 

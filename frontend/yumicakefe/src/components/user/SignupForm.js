@@ -139,7 +139,10 @@ const SignupForm = (props) => {
             </div>
             {error && <p className={classes["error-text"]}>{error}</p>}
             <p>
-                Bạn đã có tài khoản? <a onClick={switchLoginHandler}>Đăng nhập</a>
+                Bạn đã có tài khoản?{" "}
+                <button href="#" onClick={switchLoginHandler} className={classes.btnSwitch} >
+                    Đăng nhập
+                </button>
             </p>
         </Fragment>
     );

@@ -5,14 +5,12 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import NotFound from "./Pages/NotFound";
 import Layout from "./components/Layout/Layout";
 import ShowAllCakes from "./components/cake/ShowAllCake";
-import Notification from "./components/UI/Notification";
 import { sendCartData, fetchCartData } from "./store/cart-actions";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import Modal from "./components/UI/Modal";
 import { uiActions } from "./store/ui-slice";
 import User from "./components/user/User";
-import Signup from "./components/user/SignupForm";
 import Cart from "./components/Cart/Cart";
 import LoginForm from "./components/user/LoginForm";
 
@@ -30,7 +28,7 @@ function App() {
 
     useEffect(() => {
         dispatch(fetchCartData());
-    }, []);
+    }, [dispatch]);
 
     useEffect(() => {
         if (isInitial) {
