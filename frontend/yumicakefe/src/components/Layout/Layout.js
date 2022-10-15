@@ -7,7 +7,7 @@ const Layout = (props) => {
     return (
         <Fragment>
             <MainNavigation />
-            <SubNavigation />
+            {/* <SubNavigation /> */}
             <main className={classes.main}>{props.children}</main>
         </Fragment>
     );

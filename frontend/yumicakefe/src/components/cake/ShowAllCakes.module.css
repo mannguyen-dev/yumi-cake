@@ -2,14 +2,14 @@
     display: grid;
     grid-template-columns: 260px 260px 260px 260px;
     width: 1140px;
-    margin: auto;
+    margin: 40px auto;
     grid-row-gap: 50px;
     gap: 30px;
 }
 
 .pagePagination {
     display: flex;
-    margin: 30px auto 0;
+    margin: 30px auto 50px;
     gap: 12px;
     justify-content: center;
 }
