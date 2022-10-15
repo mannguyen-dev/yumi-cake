@@ -36,7 +36,7 @@ productSchema.methods.toJSON = function () {
     const productObject = product.toObject();
 
     // delete private fields
-    delete productObject.images;
+    // delete productObject.images;
 
     return productObject;
 };

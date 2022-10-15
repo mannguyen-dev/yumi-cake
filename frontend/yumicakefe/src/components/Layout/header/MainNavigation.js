@@ -3,43 +3,71 @@ import classes from "./MainNavigation.module.css";
 import SearchBar from "../../UI/SearchBar";
 import { Fragment, useRef } from "react";
 import HeaderCartButton from "./HeaderCartButton";
+import { useDispatch, useSelector } from "react-redux";
+import { uiActions } from "../../../store/ui-slice";
+import { userActions } from "../../../store/user-slice";
 
 const MainNavigation = () => {
-  const inputRef = useRef();
+    const inputRef = useRef();
 
-  return (
-    <Fragment>
-      <div className={classes.sticky}></div>
-      <header className={classes.header}>
-        <NavLink to="/home" className={classes.logo}>
-          Yumi Cake
-        </NavLink>
-        <SearchBar ref={inputRef} input={{ id: "a" }} label="Tìm kiếm" />
-        <nav className={classes.nav}>
-          <ul>
-            <li>
-              <NavLink to="/products" activeClassName={classes.active}>
-                Khám phá
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/about" activeClassName={classes.active}>
-                Liên hệ
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/login" activeClassName={classes.active}>
+    const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+
+    const dispatch = useDispatch();
+    const loginToggleHandler = () => {
+        dispatch(uiActions.showLogin());
+    };
+
+    const logoutToggleHandler = () => {
+        dispatch(userActions.logout());
+    };
+
+    let userLink;
+
+    if (!isLoggedIn) {
+        userLink = (
+            <NavLink to="/home" onClick={loginToggleHandler}>
                 Đăng nhập
-              </NavLink>
-            </li>
-            <li>
-              <HeaderCartButton />
-            </li>
-          </ul>
-        </nav>
-      </header>
-    </Fragment>
-  );
+            </NavLink>
+        );
+    } else {
+        userLink = (
+            <NavLink to="/home" onClick={logoutToggleHandler}>
+                Đăng xuất
+            </NavLink>
+        );
+    }
+
+    return (
+        <Fragment>
+            <div className={classes.sticky}></div>
+            <header className={classes.header}>
+                <NavLink to="/home" className={classes.logo}>
+                    Yumi Cake
+                </NavLink>
+                <SearchBar ref={inputRef} input={{ id: "a" }} label="Tìm kiếm" />
+                <nav className={classes.nav}>
+                    <ul>
+                        <li>
+                            <NavLink to="/products" activeClassName={classes.active}>
+                                Khám phá
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/about" activeClassName={classes.active}>
+                                Liên hệ
+                            </NavLink>
+                        </li>
+                        <li>{userLink}</li>
+                        {isLoggedIn && (
+                            <li>
+                                <HeaderCartButton />
+                            </li>
+                        )}
+                    </ul>
+                </nav>
+            </header>
+        </Fragment>
+    );
 };
 
 export default MainNavigation;
