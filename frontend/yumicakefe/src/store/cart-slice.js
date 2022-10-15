@@ -15,7 +15,6 @@ const cartSlide = createSlice({
         },
         addItemToCart(state, action) {
             const newItem = action.payload;
-            console.log(newItem, state.items);
             const existingItem = state.items.find((item) => {
                 return item.id === newItem.id && item.message === newItem.message && item.weight === newItem.weight;
             });

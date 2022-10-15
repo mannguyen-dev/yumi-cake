@@ -22,7 +22,15 @@ const CakeItem = (props) => {
     const description = `${cake.description.slice(0, 60)}...`;
 
     const addToCartHandler = () => {
-        dispatch(cartActions.addItemToCart({ cake, weight: cake.sizes[0].weight, price: cake.sizes[0].price }));
+        dispatch(
+            cartActions.addItemToCart({
+                cake,
+                id: cake._id,
+                weight: cake.sizes[0].weight,
+                price: cake.sizes[0].price,
+                message: undefined,
+            })
+        );
     };
 
     return (
