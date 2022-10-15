@@ -4,8 +4,16 @@ import classes from "./HeaderCartButton.module.css";
 
 import { useContext, useEffect, useState } from "react";
 // import CartContext from "../../store/cart-context";
+import { useDispatch, useSelector } from "react-redux";
+import { uiActions } from "../../../store/ui-slice";
 
 const HeaderCartButton = (props) => {
+    const dispatch = useDispatch();
+    const cartQuantity = useSelector((state) => state.cart.totalQuantity);
+    const toggleCartHandler = () => {
+        dispatch(uiActions.showCart());
+    };
+
     // const cartCtx = useContext(CartContext);
     // const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);
 
@@ -33,11 +41,11 @@ const HeaderCartButton = (props) => {
     // const btnClasses = `${classes.button} ${btnIsHighlighted ? classes.bump : ""}`;
 
     return (
-        <button className={classes.button} onClick={props.onClick}>
+        <button className={classes.button} onClick={toggleCartHandler}>
             <span className={classes.icon}>
                 <CartIcon />
             </span>
-            <span>0</span>
+            <span>{cartQuantity}</span>
         </button>
     );
 };

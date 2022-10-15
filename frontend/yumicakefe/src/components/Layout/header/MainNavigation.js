@@ -3,9 +3,39 @@ import classes from "./MainNavigation.module.css";
 import SearchBar from "../../UI/SearchBar";
 import { Fragment, useRef } from "react";
 import HeaderCartButton from "./HeaderCartButton";
+import { useDispatch, useSelector } from "react-redux";
+import { uiActions } from "../../../store/ui-slice";
+import { userActions } from "../../../store/user-slice";
 
 const MainNavigation = () => {
     const inputRef = useRef();
+
+    const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+
+    const dispatch = useDispatch();
+    const loginToggleHandler = () => {
+        dispatch(uiActions.showLogin());
+    };
+
+    const logoutToggleHandler = () => {
+        dispatch(userActions.logout());
+    };
+
+    let userLink;
+
+    if (!isLoggedIn) {
+        userLink = (
+            <NavLink to="/home" onClick={loginToggleHandler}>
+                Đăng nhập
+            </NavLink>
+        );
+    } else {
+        userLink = (
+            <NavLink to="/home" onClick={logoutToggleHandler}>
+                Đăng xuất
+            </NavLink>
+        );
+    }
 
     return (
         <Fragment>
@@ -27,14 +57,12 @@ const MainNavigation = () => {
                                 Liên hệ
                             </NavLink>
                         </li>
-                        <li>
-                            <NavLink to="/login" activeClassName={classes.active}>
-                                Đăng nhập
-                            </NavLink>
-                        </li>
-                        <li>
-                            <HeaderCartButton />
-                        </li>
+                        <li>{userLink}</li>
+                        {isLoggedIn && (
+                            <li>
+                                <HeaderCartButton />
+                            </li>
+                        )}
                     </ul>
                 </nav>
             </header>
