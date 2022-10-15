@@ -2,13 +2,14 @@ import { Fragment, useEffect, useState } from "react";
 import classes from "./ShowAllCakes.module.css";
 import CakesDataService from "../../services/cake";
 import CakeItem from "./CakeItem";
+const itemPerPage = 16;
 
 const ShowAllCakes = (props) => {
     const [cakes, setCakes] = useState([]);
     const [page, setPage] = useState(0);
 
     useEffect(() => {
-        CakesDataService.getAll(20, page * 20)
+        CakesDataService.getAll(itemPerPage, page * itemPerPage)
             .then((response) => {
                 setCakes(response.data);
             })
@@ -18,13 +19,11 @@ const ShowAllCakes = (props) => {
     }, [page]);
 
     const nextPageHandler = () => {
-        if (cakes.length >= 4) setPage(page + 1);
-        console.log(page);
+        setPage(page + 1);
     };
 
     const backPageHandler = () => {
         if (page > 0) setPage(page - 1);
-        console.log(page);
     };
     return (
         <Fragment>
@@ -36,7 +35,7 @@ const ShowAllCakes = (props) => {
             <div className={classes.pagePagination}>
                 {page > 0 && <button onClick={backPageHandler}>{"<<"} Trước</button>}
                 <button>Trang {page + 1}</button>
-                {cakes.length >= 20 && <button onClick={nextPageHandler}> Sau {">>"}</button>}
+                {cakes.length >= itemPerPage && <button onClick={nextPageHandler}> Sau {">>"}</button>}
             </div>
         </Fragment>
     );

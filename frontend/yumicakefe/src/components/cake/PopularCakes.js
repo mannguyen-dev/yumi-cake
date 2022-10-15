@@ -19,12 +19,10 @@ const PopularCakes = (props) => {
 
     const nextPageHandler = () => {
         if (cakes.length >= 4) setPage(page + 1);
-        console.log(page);
     };
 
     const backPageHandler = () => {
         if (page > 0) setPage(page - 1);
-        console.log(page);
     };
 
     return (

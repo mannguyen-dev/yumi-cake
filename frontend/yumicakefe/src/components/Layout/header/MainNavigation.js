@@ -6,11 +6,13 @@ import HeaderCartButton from "./HeaderCartButton";
 import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../../store/ui-slice";
 import { userActions } from "../../../store/user-slice";
+import { cartActions } from "../../../store/cart-slice";
 
 const MainNavigation = () => {
     const inputRef = useRef();
 
     const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+    const cart = useSelector((state) => state.cart);
 
     const dispatch = useDispatch();
     const loginToggleHandler = (event) => {
@@ -21,6 +23,15 @@ const MainNavigation = () => {
     const logoutToggleHandler = (event) => {
         event.preventDefault();
         dispatch(userActions.logout());
+        dispatch(uiActions.setUnvisible());
+        dispatch(
+            cartActions.replaceCart({
+                items: [],
+                totalQuantity: 0,
+                location: null,
+                changed: false,
+            })
+        );
     };
 
     let userLink;

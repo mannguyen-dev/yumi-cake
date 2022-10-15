@@ -1,9 +1,10 @@
 .container {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: 260px 260px 260px 260px;
     width: 1140px;
     margin: auto;
     grid-row-gap: 50px;
+    gap: 30px;
 }
 
 .pagePagination {
