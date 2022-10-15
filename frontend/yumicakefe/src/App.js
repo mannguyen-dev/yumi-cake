@@ -2,10 +2,10 @@
 import "./App.css";
 import Home from "./Pages/Home/Home";
 import { Route, Switch, Redirect } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import NotFound from "./Pages/NotFound";
 import Layout from "./components/Layout/Layout";
 import ShowAllCakes from "./components/cake/ShowAllCake";
-import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import Modal from "./components/UI/Modal";
 import { uiActions } from "./store/ui-slice";
@@ -13,6 +13,7 @@ import User from "./components/user/User";
 import Cart from "./components/Cart/Cart";
 import LoginForm from "./components/user/LoginForm";
 import CakeDetail from "./components/cake_details/CakeDetail";
+import AboutUs from "./components/about/AboutUs";
 
 function App() {
     const dispatch = useDispatch();
@@ -56,7 +57,7 @@ function App() {
                         <Home />
                     </Route>
                     <Route path="/about">
-                        <Home />
+                        <AboutUs />
                     </Route>
                     <Route path="*">
                         <NotFound />

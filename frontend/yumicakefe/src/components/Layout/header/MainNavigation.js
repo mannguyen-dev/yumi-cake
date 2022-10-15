@@ -56,7 +56,7 @@ const MainNavigation = () => {
                         </li>
                         <li>
                             <NavLink to="/about" activeClassName={classes.active}>
-                                Liên hệ
+                                Giới thiệu
                             </NavLink>
                         </li>
                         <li>{userLink}</li>
