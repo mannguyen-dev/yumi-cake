@@ -38,12 +38,12 @@ router.post("/orders", auth, async (req, res) => {
 // limit skip
 // GET /tasks?limit=10&skip
 // GET /tasks?sortBy=createdAt:asc(desc)
-router.get("/Orders", async (req, res) => {
+router.get("/orders", async (req, res) => {
     const match = {};
     const sort = {};
 
-    if (req.query.name) {
-        match.name = { $regex: ".*" + req.query.name + ".*" };
+    if (req.query.address) {
+        match.address = { $regex: ".*" + req.query.address + ".*", $options: "i" };
     }
 
     if (req.query.sortBy) {
@@ -86,7 +86,7 @@ router.get("/orders/:id", async (req, res) => {
 });
 
 //GET Order by Order id
-router.get("/orders/me/", auth, async (req, res) => {
+router.get("/ordersbyme/", auth, async (req, res) => {
     const _id = req.user._id;
 
     try {
