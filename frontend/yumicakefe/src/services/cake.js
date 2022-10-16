@@ -20,6 +20,10 @@ class CakeDataService {
         return axios.get(`${URL}/products/id/${id}`);
     }
 
+    getByName(name = "", limit = 20, skip = 0) {
+        return axios.get(`${URL}/products?name=${name}&limit=${limit}&skip=${skip}`);
+    }
+
     find(query, by = "name", limit = 20, skip = 0) {
         return axios.get(`${URL}/products?${by}=${query}&limit=${limit}&skip=${skip}`);
     }

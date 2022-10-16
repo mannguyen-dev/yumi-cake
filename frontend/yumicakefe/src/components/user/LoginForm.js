@@ -77,6 +77,11 @@ const LoginForm = (props) => {
         ? `${classes["form-control"]} ${classes.invalid}`
         : `${classes["form-control"]}`;
 
+    const closeHandler = (event) => {
+        event.preventDefault();
+        dispatch(uiActions.setUnvisible());
+    };
+
     return (
         <Fragment>
             {!isSignup && (
@@ -111,6 +116,9 @@ const LoginForm = (props) => {
                             )}
                         </div>
                         <div className={classes["form-actions"]}>
+                            <button className={classes.closeBtn} onClick={closeHandler}>
+                                Đóng
+                            </button>
                             <button disabled={!formIsValid}>Đăng nhập</button>
                         </div>
                         {error && <p className={classes["error-text"]}>{error}</p>}

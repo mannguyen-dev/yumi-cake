@@ -2,21 +2,34 @@ import { Fragment, useEffect, useState } from "react";
 import classes from "./ShowAllCakes.module.css";
 import CakesDataService from "../../services/cake";
 import CakeItem from "./CakeItem";
+import { useSelector } from "react-redux";
 const itemPerPage = 16;
 
 const ShowAllCakes = (props) => {
+    const searchInfo = useSelector((state) => state.search.searchInfo);
+
     const [cakes, setCakes] = useState([]);
     const [page, setPage] = useState(0);
 
     useEffect(() => {
-        CakesDataService.getAll(itemPerPage, page * itemPerPage)
-            .then((response) => {
-                setCakes(response.data);
-            })
-            .catch((e) => {
-                console.log(e);
-            });
-    }, [page]);
+        if (searchInfo) {
+            CakesDataService.getByName(searchInfo, itemPerPage, page * itemPerPage)
+                .then((response) => {
+                    setCakes(response.data);
+                })
+                .catch((e) => {
+                    console.log(e);
+                });
+        } else {
+            CakesDataService.getAll(itemPerPage, page * itemPerPage)
+                .then((response) => {
+                    setCakes(response.data);
+                })
+                .catch((e) => {
+                    console.log(e);
+                });
+        }
+    }, [page, searchInfo]);
 
     const nextPageHandler = () => {
         setPage(page + 1);

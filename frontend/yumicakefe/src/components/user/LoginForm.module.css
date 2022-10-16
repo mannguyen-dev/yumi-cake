@@ -51,6 +51,26 @@
     flex: 1;
 }
 
+.form-actions {
+    display: flex;
+    gap: 16px;
+    text-align: left;
+}
+
+.form-actions .closeBtn {
+    background-color: #dee2e6;
+    color: #343a40;
+    border-color: #dee2e6;
+    width: 100px;
+}
+
+.form-actions .closeBtn:hover,
+.form-actions .closeBtn:active {
+    background-color: #495057;
+    color: #fff;
+    border-color: #495057;
+}
+
 .form-actions button {
     font: inherit;
     font-weight: bold;
@@ -60,7 +80,7 @@
     padding: 0.5rem 1.5rem;
     border-radius: 4px;
     cursor: pointer;
-    width: 300px;
+    width: 184px;
     margin-bottom: 1rem;
 }
 
@@ -90,10 +110,6 @@
 .loginForm .btnSwitch:active {
     color: #d9480f !important;
     border-bottom: 1px solid #d9480f !important;
-}
-
-.form-actions {
-    text-align: left;
 }
 
 .invalid input {

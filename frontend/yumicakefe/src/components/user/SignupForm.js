@@ -94,6 +94,11 @@ const SignupForm = (props) => {
         ? `${classes["form-control"]} ${classes.invalid}`
         : `${classes["form-control"]}`;
 
+    const closeHandler = (event) => {
+        event.preventDefault();
+        dispatch(uiActions.setUnvisible());
+    };
+
     const signUpForm = (
         <Fragment>
             <div className={emailInputClasses}>
@@ -135,12 +140,15 @@ const SignupForm = (props) => {
             </div>
 
             <div className={classes["form-actions"]}>
+                <button className={classes.closeBtn} onClick={closeHandler}>
+                    Đóng
+                </button>
                 <button disabled={!formIsValid}>Đăng ký</button>
             </div>
             {error && <p className={classes["error-text"]}>{error}</p>}
             <p>
                 Bạn đã có tài khoản?{" "}
-                <button href="#" onClick={switchLoginHandler} className={classes.btnSwitch} >
+                <button href="#" onClick={switchLoginHandler} className={classes.btnSwitch}>
                     Đăng nhập
                 </button>
             </p>

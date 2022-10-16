@@ -52,7 +52,7 @@ const CakeInfo = (props) => {
             <h2>{cake.name}</h2>
             <div className={classes.rate}>
                 <div className={classes.star}>★ 4.9</div>
-                <a>20 đánh giá </a>
+                <a href>20 đánh giá </a>
             </div>
             <div className={classes.price}>
                 {formatCurrency.format(price)} <span> / {weight.toFixed(1)} kg</span>

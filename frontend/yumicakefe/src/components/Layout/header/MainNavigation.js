@@ -7,12 +7,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../../store/ui-slice";
 import { userActions } from "../../../store/user-slice";
 import { cartActions } from "../../../store/cart-slice";
+import { searchActions } from "../../../store/search-slide";
 
 const MainNavigation = () => {
     const inputRef = useRef();
 
     const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
-    const cart = useSelector((state) => state.cart);
 
     const dispatch = useDispatch();
     const loginToggleHandler = (event) => {
@@ -50,6 +50,10 @@ const MainNavigation = () => {
         );
     }
 
+    const resetSearchDispatch = () => {
+        dispatch(searchActions.setSearchFalse());
+    };
+
     return (
         <Fragment>
             <div className={classes.sticky}></div>
@@ -61,7 +65,7 @@ const MainNavigation = () => {
                 <nav className={classes.nav}>
                     <ul>
                         <li>
-                            <NavLink to="/products" activeClassName={classes.active}>
+                            <NavLink to="/products" onClick={resetSearchDispatch} activeClassName={classes.active}>
                                 Khám phá
                             </NavLink>
                         </li>

@@ -6,7 +6,6 @@ import { useSelector, useDispatch } from "react-redux";
 import NotFound from "./Pages/NotFound";
 import Layout from "./components/Layout/Layout";
 import ShowAllCakes from "./components/cake/ShowAllCake";
-import { useEffect } from "react";
 import Modal from "./components/UI/Modal";
 import { uiActions } from "./store/ui-slice";
 import User from "./components/user/User";
@@ -20,8 +19,8 @@ function App() {
     const showCart = useSelector((state) => state.ui.cartIsVisible);
     const showLogin = useSelector((state) => state.ui.showLogin);
     const showUserPage = useSelector((state) => state.ui.showUserPage);
-    const cart = useSelector((state) => state.cart);
-    const user = useSelector((state) => state.user.user);
+    // const cart = useSelector((state) => state.cart);
+    // const user = useSelector((state) => state.user.user);
 
     const backdropHandler = () => {
         dispatch(uiActions.setUnvisible());
