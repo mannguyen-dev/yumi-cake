@@ -1,10 +1,10 @@
 import classes from "./CakeItem.module.css";
-import { URL } from "../../services/cake";
+import { url } from "../../services/cake";
 
 const CakeItem = (props) => {
     // console.log(props);
 
-    const imageUrl = `${URL}/products/id/${props.cake._id}/images/0`;
+    const imageUrl = `${url}/products/id/${props.cake._id}/images/0`;
 
     const name = props.cake.name.length < 18 ? `${props.cake.name}` : `${props.cake.name.slice(0, 18)}...`;
     const description = `${props.cake.description.slice(0, 60)}...`;

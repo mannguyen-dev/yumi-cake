@@ -24,11 +24,6 @@
     text-decoration: none;
 }
 
-.logo:active,
-.logo:hover {
-    color: #ffa94d;
-}
-
 .nav ul {
     list-style: none;
     display: flex;
