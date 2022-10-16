@@ -23,3 +23,34 @@
     border-radius: 12px;
     font-size: 18px;
 }
+
+.searchResult {
+    display: flex;
+    width: 1120px;
+    margin: 20px auto;
+    gap: 20px;
+    font-size: 20px;
+    align-items: center;
+}
+
+.searchResult .title {
+    font-weight: bold;
+}
+
+.searchResult button {
+    border: 1px solid #868e96;
+    padding: 4px;
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+.searchResult button:hover,
+.searchResult button:active {
+    background-color: #868e96;
+    color: #fff;
+}
+
+.searchResult button .active {
+    background-color: #868e96;
+    color: #fff;
+}

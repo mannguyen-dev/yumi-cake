@@ -4,7 +4,7 @@ import classes from "./CakeContainer.module.css";
 const CakeContainer = (props) => {
     const isEndList = props.cakes.length < 4;
     const isBeginList = props.page === 0;
-    // console.log(props);
+
     return (
         <div className={classes.cakeContainer}>
             {!isBeginList && (

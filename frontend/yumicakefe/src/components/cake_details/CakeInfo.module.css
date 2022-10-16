@@ -137,3 +137,16 @@ hr.rounded {
     text-align: justify;
     color: #868e96;
 }
+
+.categories {
+    text-align: left;
+}
+
+.categories span {
+    font-weight: bold;
+}
+
+.categories a:hover {
+    font-weight: bold;
+    color: #e67700;
+}

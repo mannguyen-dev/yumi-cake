@@ -12,6 +12,10 @@ class CakeDataService {
         return axios.get(`${URL}/products?limit=${limit}&skip=${skip}`);
     }
 
+    getByCategory(category, limit = 20, skip = 0) {
+        return axios.get(`${URL}/products?category=${category}&limit=${limit}&skip=${skip}`);
+    }
+
     getNew(limit = 20, skip = 0) {
         return axios.get(`${URL}/products/trending?limit=${limit}&skip=${skip}`);
     }
@@ -27,20 +31,6 @@ class CakeDataService {
     find(query, by = "name", limit = 20, skip = 0) {
         return axios.get(`${URL}/products?${by}=${query}&limit=${limit}&skip=${skip}`);
     }
-    // createReview(data) {
-    //     return axios.post(`${url}/api/v1/movies/review`, data);
-    // }
-    // updateReview(data) {
-    //     return axios.put(`${url}/api/v1/movies/review`, data);
-    // }
-    // deleteReview(id, userId) {
-    //     return axios.delete(`${url}/api/v1/movies/review`, {
-    //         data: { review_id: id, user_id: userId },
-    //     });
-    // }
-    // getRatings() {
-    //     return axios.get(`${url}/api/v1/movies/ratings`);
-    // }
 }
 
 export default new CakeDataService();

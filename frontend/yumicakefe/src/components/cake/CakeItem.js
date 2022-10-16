@@ -19,7 +19,7 @@ const CakeItem = (props) => {
     const cake = props.cake;
 
     const name = cake.name.length < 18 ? `${cake.name}` : `${cake.name.slice(0, 18)}...`;
-    const description = `${cake.description.slice(0, 60)}...`;
+    const description = `${cake.description.slice(0, 50)}...`;
 
     const addToCartHandler = () => {
         dispatch(

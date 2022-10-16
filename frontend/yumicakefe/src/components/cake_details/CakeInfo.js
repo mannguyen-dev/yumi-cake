@@ -4,6 +4,8 @@ import { cartActions } from "../../store/cart-slice";
 import { uiActions } from "../../store/ui-slice";
 import classes from "./CakeInfo.module.css";
 import { formatCurrency } from "../../utility/FormatCurrency";
+import { Link } from "react-router-dom";
+import { searchActions } from "../../store/search-slide";
 
 const CakeInfo = (props) => {
     const cake = props.cake;
@@ -47,9 +49,15 @@ const CakeInfo = (props) => {
         );
     };
 
+    const searchByCategoryHandler = (event) => {
+        const searchByCategory = event.target.innerText.slice(0, -2);
+        dispatch(searchActions.setCategory({ searchByCategory }));
+    };
+
     return (
         <div className={classes.cakeInfoContainer}>
             <h2>{cake.name}</h2>
+
             <div className={classes.rate}>
                 <div className={classes.star}>★ 4.9</div>
                 <a href>20 đánh giá </a>
@@ -85,6 +93,22 @@ const CakeInfo = (props) => {
             <div className={classes.description}>
                 <h3>Mô tả sản phẩm</h3>
                 <div>{cake.description}</div>
+            </div>
+            <div className={classes.categories}>
+                <span>Danh mục: </span>
+                {cake.categories.map((item) => (
+                    <Link
+                        to={`/products?category=${item}`}
+                        href
+                        key={Math.random()}
+                        onClick={searchByCategoryHandler}
+                        className={classes.categories}
+                    >
+                        {item}
+                        {", "}
+                    </Link>
+                ))}
+                ...
             </div>
         </div>
     );
