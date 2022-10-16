@@ -3,12 +3,11 @@
     padding-bottom: 0.25rem;
     border-bottom: 4px solid #ffa94d;
     width: 1200px;
-    margin: 60px auto 20px;
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    margin: 60px auto 32px;
     font-size: 36px;
 }
 
 .container {
     width: 1200px;
-    margin: auto;
+    margin: 60px auto 60px;
 }

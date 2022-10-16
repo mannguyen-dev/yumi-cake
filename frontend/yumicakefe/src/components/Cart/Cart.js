@@ -5,18 +5,43 @@ import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../store/ui-slice";
 import { Fragment } from "react";
 import { formatCurrency } from "../../utility/FormatCurrency";
+import OrderDataService from "../../services/order";
+import { cartActions } from "../../store/cart-slice";
 
 const Cart = (props) => {
     const dispatch = useDispatch();
     const cart = useSelector((state) => state.cart);
     const cartItems = useSelector((state) => state.cart.items);
+    const authToken = useSelector((state) => state.user.authToken);
 
     const closeHandler = () => {
         dispatch(uiActions.setUnvisible());
     };
 
-    const orderHandler = () => {
-        console.log(cart);
+    const orderHandler = async (e) => {
+        e.preventDefault();
+
+        const details = [];
+
+        for (const cake of cart.items) {
+            details.push({
+                _id: cake.id,
+                amount: cake.quantity,
+                weight: cake.weight,
+                price: cake.price,
+                message: cake.message ? cake.message : " ",
+            });
+        }
+
+        try {
+            const response = OrderDataService.postOrder(details, cart.location, authToken);
+            const responseData = await Promise.resolve(response);
+            console.log(responseData);
+        } catch (e) {
+            console.log(e);
+        }
+
+        dispatch(cartActions.replaceCart({ items: [], totalQuantity: 0 }));
     };
 
     let total = 0;

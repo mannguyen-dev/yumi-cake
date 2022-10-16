@@ -26,8 +26,8 @@
 
 .searchResult {
     display: flex;
-    width: 1120px;
-    margin: 20px auto;
+    width: 100%;
+    margin: 20px auto 0px;
     gap: 20px;
     font-size: 20px;
     align-items: center;
@@ -53,4 +53,10 @@
 .searchResult button .active {
     background-color: #868e96;
     color: #fff;
+}
+
+.feature {
+    display: flex;
+    width: 1120px;
+    margin: auto;
 }

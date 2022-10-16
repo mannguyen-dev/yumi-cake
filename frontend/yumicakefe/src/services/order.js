@@ -1,21 +1,21 @@
 import axios from "axios";
 import { BACKEND_URL } from "../utility/Constants";
 
-class UserDataService {
-    login(email, password) {
-        return axios.post(`${BACKEND_URL}/users/login`, {
-            email,
-            password,
-        });
-    }
-
-    signup(email, password, name = "", phone = "0") {
-        return axios.post(`${BACKEND_URL}/users`, {
-            name,
-            email,
-            password,
-            phone,
-        });
+class OrderDataService {
+    postOrder(details, address = "0", token) {
+        console.log({ details, address });
+        return axios.post(
+            `${BACKEND_URL}/orders`,
+            {
+                details,
+                address,
+            },
+            {
+                headers: {
+                    Authorization: "Bearer " + token, //the token is a variable which holds the token
+                },
+            }
+        );
     }
     // createReview(data) {
     //     return axios.post(`${url}/api/v1/movies/review`, data);
@@ -33,4 +33,4 @@ class UserDataService {
     // }
 }
 
-export default new UserDataService();
+export default new OrderDataService();

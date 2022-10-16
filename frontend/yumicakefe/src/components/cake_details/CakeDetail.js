@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import CakeInfo from "./CakeInfo";
 import PopularCakes from "../cake/PopularCakes";
 import Breadcumb from "../Layout/breadcumb/breadcumb";
+import ReviewContainer from "../review/ReviewContainer";
 
 const CakeDetail = () => {
     const [cake, setCake] = useState(null);
@@ -53,6 +54,7 @@ const CakeDetail = () => {
                 <CakeInfo cake={cake} />
             </section>
             <PopularCakes title="Có liên quan" typeCake="Category" category={category} />
+            <ReviewContainer cake={cake} />
         </Fragment>
     );
 };

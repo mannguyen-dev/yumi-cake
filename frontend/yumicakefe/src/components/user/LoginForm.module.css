@@ -82,6 +82,7 @@
     cursor: pointer;
     width: 184px;
     margin-bottom: 1rem;
+    font-size: 20px;
 }
 
 .form-actions button:hover,

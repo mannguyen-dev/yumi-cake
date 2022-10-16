@@ -83,11 +83,19 @@ const ShowAllCakes = (props) => {
     return (
         <Fragment>
             <Breadcumb titleInfo="Khám phá" navigateArray={navigateArray} />
-            {(searchByCategory || searchInfo) && searchResult}
-            <div className={classes.searchResult}>
-                <div className={classes.title}>Sắp xếp theo tên: </div>
-                <button onClick={ascHandler}>Tăng dần</button>
-                <button onClick={descHandler}>Giảm dần</button>
+            <div className={classes.feature}>
+                {(searchByCategory || searchInfo) && searchResult}
+                <div className={classes.searchResult}>
+                    <div className={classes.title}>Sắp xếp: </div>
+                    <div className={classes.title}>Tên </div>
+                    <button onClick={ascHandler}>Tăng dần</button>
+                    <button onClick={descHandler}>Giảm dần</button>
+                </div>
+                <div className={classes.searchResult}>
+                    <div className={classes.title}>Giá </div>
+                    <button onClick={ascHandler}>Tăng dần</button>
+                    <button onClick={descHandler}>Giảm dần</button>
+                </div>
             </div>
             <div className={classes.container}>
                 {cakes.map((item) => (

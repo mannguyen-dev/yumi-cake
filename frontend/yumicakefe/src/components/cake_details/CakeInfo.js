@@ -86,7 +86,7 @@ const CakeInfo = (props) => {
                 </div>
                 <button type="submit">
                     <p>MUA NGAY</p>
-                    <span>(Vui lòng đặt trước 8PM)</span>
+                    <span>(Vui lòng đặt trước 8 giờ tối hằng ngày)</span>
                 </button>
             </form>
             <hr className={classes.rounded}></hr>

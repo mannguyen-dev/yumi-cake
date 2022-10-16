@@ -1,5 +1,5 @@
 import classes from "./CakeItem.module.css";
-import { URL } from "../../services/cake";
+import { BACKEND_URL } from "../../utility/Constants";
 import { useHistory } from "react-router-dom";
 import { formatCurrency } from "../../utility/FormatCurrency";
 import { cartActions } from "../../store/cart-slice";
@@ -14,12 +14,12 @@ const CakeItem = (props) => {
         history.push(`products/id/${props.cake._id}`);
     };
 
-    const imageUrl = `${URL}/products/id/${props.cake._id}/images/0`;
+    const imageUrl = `${BACKEND_URL}/products/id/${props.cake._id}/images/0`;
 
     const cake = props.cake;
 
-    const name = cake.name.length < 18 ? `${cake.name}` : `${cake.name.slice(0, 18)}...`;
-    const description = `${cake.description.slice(0, 50)}...`;
+    const name = cake.name.length < 20 ? `${cake.name}` : `${cake.name.slice(0, 20)}...`;
+    const description = `${cake.description.slice(0, 56)}...`;
 
     const addToCartHandler = () => {
         dispatch(

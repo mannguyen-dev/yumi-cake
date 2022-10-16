@@ -9,15 +9,13 @@
 }
 
 .p {
-    font-family: Poppins;
-    font-size: 16px;
     font-weight: 400;
     font-stretch: normal;
     font-style: normal;
     line-height: 1.71;
     letter-spacing: 0.34px;
     text-align: left;
-    color: #000;
+    color: #495057;
     margin-bottom: 30px;
 }
 .aboutusbody {
@@ -32,6 +30,9 @@
 }
 .aboutusheader {
     padding-bottom: 30px;
+    color: #495057;
+    font-weight: bold;
+    font-size: 20px;
 }
 .numberimg {
     display: block;
@@ -48,9 +49,8 @@
     padding-right: 20px;
 }
 .numberbody {
-    font-family: "Poppins", sans-serif;
     opacity: 0.6;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 400;
     font-stretch: normal;
     font-style: normal;
@@ -60,8 +60,7 @@
 }
 .p2 {
     opacity: 0.6;
-    font-family: Poppins;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 400;
     font-stretch: normal;
     font-style: normal;
