@@ -1,6 +1,6 @@
 // import logo from "./logo.svg";
 import "./App.css";
-import Home from "./Pages/Home/Home";
+import Home from "./Pages/Home";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import NotFound from "./Pages/NotFound";
