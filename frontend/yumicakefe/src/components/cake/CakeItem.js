@@ -25,11 +25,11 @@ const CakeItem = (props) => {
     const addToCartHandler = () => {
         dispatch(
             cartActions.addItemToCart({
-                cake,
-                id: cake._id,
+                name: cake.name,
+                product_id: cake._id,
                 weight: cake.sizes[0].weight,
                 price: cake.sizes[0].price,
-                message: undefined,
+                message: " ",
             })
         );
     };

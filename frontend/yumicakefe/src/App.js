@@ -19,8 +19,6 @@ function App() {
     const showCart = useSelector((state) => state.ui.cartIsVisible);
     const showLogin = useSelector((state) => state.ui.showLogin);
     const showUserPage = useSelector((state) => state.ui.showUserPage);
-    // const cart = useSelector((state) => state.cart);
-    // const user = useSelector((state) => state.user.user);
 
     const backdropHandler = () => {
         dispatch(uiActions.setUnvisible());

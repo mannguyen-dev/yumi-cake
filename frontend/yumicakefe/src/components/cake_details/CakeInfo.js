@@ -39,12 +39,12 @@ const CakeInfo = (props) => {
         }
         dispatch(
             cartActions.addItemToCart({
-                cake,
+                name: cake.name,
                 weight,
                 price,
                 message: messageRef.current.value,
                 location: locationRef.current.value,
-                id: cake._id,
+                product_id: cake._id,
             })
         );
     };

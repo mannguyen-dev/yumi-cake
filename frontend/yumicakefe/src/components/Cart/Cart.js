@@ -23,17 +23,15 @@ const Cart = (props) => {
 
         const details = [];
 
-        for (const cake of cart.items) {
+        for (const item of cart.items) {
             details.push({
-                product_id: cake.id,
-                amount: cake.quantity,
-                weight: cake.weight,
-                price: cake.price,
-                message: cake.message ? cake.message : " ",
+                product_id: item.product_id,
+                amount: item.quantity,
+                weight: item.weight,
+                price: item.price,
+                message: item.message ? item.message : " ",
             });
-            console.log(cake.id);
         }
-        console.log(details);
 
         try {
             const response = OrderDataService.postOrder(details, cart.location, authToken);

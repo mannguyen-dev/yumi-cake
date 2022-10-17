@@ -56,7 +56,7 @@ const SignupForm = (props) => {
 
         try {
             if (enteredPassword !== enteredRePass) {
-                throw Error("Mật khẩu nhập lại không khớp!");
+                throw new Error("Mật khẩu nhập lại không khớp!");
             }
 
             if (!formIsValid) {
@@ -75,7 +75,8 @@ const SignupForm = (props) => {
 
             dispatch(userActions.login({ user: responseData.data.user, authToken: responseData.data.token }));
         } catch (e) {
-            setError(e.message);
+            if (e.response && e.response.status === 400) setError("Lỗi... Email của bạn đã được đăng ký!");
+            else setError(e.message);
         }
     };
 

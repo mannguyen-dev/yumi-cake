@@ -39,7 +39,7 @@ const ReviewCard = (props) => {
                 <div className={classes.name}>{user.email}</div>
 
                 <div className={classes.date}>
-                    <div>{moment(props.review.date).format("hh:mm - DD/MM/YYYY ")}</div>
+                    <div>{moment(props.review.date).format("HH:mm - DD/MM/YYYY ")}</div>
                 </div>
             </div>
         </div>

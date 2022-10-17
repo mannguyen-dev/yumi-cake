@@ -5,6 +5,8 @@ const CakeContainer = (props) => {
     const isEndList = props.cakes.length < 4;
     const isBeginList = props.page === 0;
 
+    console.log(props.cakes);
+
     return (
         <div className={classes.cakeContainer}>
             {!isBeginList && (
@@ -13,7 +15,7 @@ const CakeContainer = (props) => {
                 </div>
             )}
             {props.cakes.map((item) => (
-                <CakeItem key={item._id} cake={item} />
+                <CakeItem key={Math.random()} cake={item} />
             ))}
             {!isEndList && (
                 <div className={`${classes.arrow} ${classes.right}`}>

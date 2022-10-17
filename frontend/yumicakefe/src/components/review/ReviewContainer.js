@@ -192,7 +192,7 @@ const ReviewContainer = (props) => {
                     {!isLoggedIn && (
                         <div className={classes.text}>
                             Vui lòng{" "}
-                            <a href onClick={loginHandler}>
+                            <a href="#none" onClick={loginHandler}>
                                 Đăng nhập
                             </a>{" "}
                             để thêm bình luận của bạn!

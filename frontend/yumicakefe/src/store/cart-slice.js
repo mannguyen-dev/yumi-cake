@@ -27,13 +27,13 @@ const cartSlide = createSlice({
 
             if (!existingItem) {
                 state.items.push({
-                    id: newItem.cake._id,
+                    name: newItem.name,
+                    product_id: newItem.product_id,
                     price: newItem.price,
                     weight: newItem.weight,
                     message: newItem.message,
                     quantity: 1,
                     totalPrice: newItem.price,
-                    name: newItem.cake.name,
                 });
             } else {
                 existingItem.quantity++;
