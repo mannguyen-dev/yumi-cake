@@ -3,12 +3,14 @@ import { BACKEND_URL } from "../../utility/Constants";
 import { useHistory } from "react-router-dom";
 import { formatCurrency } from "../../utility/FormatCurrency";
 import { cartActions } from "../../store/cart-slice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { uiActions } from "../../store/ui-slice";
 
 const CakeItem = (props) => {
     // console.log(props);
     const history = useHistory();
     const dispatch = useDispatch();
+    const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
 
     const seeMoreHandler = () => {
         history.push(`/products/id/${props.cake._id}`);
@@ -23,15 +25,19 @@ const CakeItem = (props) => {
     const description = `${cake.description.slice(0, 56)}...`;
 
     const addToCartHandler = () => {
-        dispatch(
-            cartActions.addItemToCart({
-                name: cake.name,
-                product_id: cake._id,
-                weight: cake.sizes[0].weight,
-                price: cake.sizes[0].price,
-                message: " ",
-            })
-        );
+        if (!isLoggedIn) {
+            dispatch(uiActions.showLogin());
+        } else {
+            dispatch(
+                cartActions.addItemToCart({
+                    name: cake.name,
+                    product_id: cake._id,
+                    weight: cake.sizes[0].weight,
+                    price: cake.sizes[0].price,
+                    message: " ",
+                })
+            );
+        }
     };
 
     return (
