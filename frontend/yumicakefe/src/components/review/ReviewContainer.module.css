@@ -180,3 +180,20 @@
 .error-text {
     color: #b40e0e;
 }
+
+.pagePagination {
+    display: flex;
+    margin: 30px auto 50px;
+    gap: 12px;
+    justify-content: center;
+}
+
+.pagePagination button {
+    height: 36px;
+    width: 40px;
+    background-color: transparent;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    font-size: 18px;
+}

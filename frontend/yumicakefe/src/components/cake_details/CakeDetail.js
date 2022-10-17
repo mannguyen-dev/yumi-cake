@@ -8,9 +8,11 @@ import CakeInfo from "./CakeInfo";
 import PopularCakes from "../cake/PopularCakes";
 import Breadcumb from "../Layout/breadcumb/breadcumb";
 import ReviewContainer from "../review/ReviewContainer";
+import ReviewDataService from "../../services/review";
 
 const CakeDetail = () => {
     const [cake, setCake] = useState(null);
+    const [allReview, setAllReview] = useState(null);
 
     const { cakeId } = useParams(); // replace for props.match.params.id
 
@@ -26,6 +28,14 @@ const CakeDetail = () => {
 
     useEffect(() => {
         getCake(cakeId);
+
+        ReviewDataService.getAllReviewsByProduct(cakeId)
+            .then((response) => {
+                setAllReview(response.data);
+            })
+            .catch((e) => {
+                console.log(e);
+            });
     }, [cakeId]);
 
     const navigateArray = [
@@ -44,17 +54,28 @@ const CakeDetail = () => {
     ];
 
     const category = cake ? cake.categories[0] : null;
-    console.log(cake);
+    let numReview;
+    let rating;
+    if (allReview) {
+        numReview = allReview.length;
+
+        let sum = 0;
+        for (const item of allReview) {
+            sum += item.stars;
+        }
+
+        rating = sum / numReview;
+    }
 
     return (
         <Fragment>
             <Breadcumb titleInfo="Thông tin sản phẩm" navigateArray={navigateArray} />
             <section className={classes.cakeDetail}>
                 <CakeImage cake={cake} />
-                <CakeInfo cake={cake} />
+                <CakeInfo cake={cake} numReview={numReview} rating={rating} />
             </section>
             <PopularCakes title="Có liên quan" typeCake="Category" category={category} />
-            <ReviewContainer cake={cake} />
+            <ReviewContainer cake={cake} numReview={numReview} rating={rating} />
         </Fragment>
     );
 };

@@ -8,7 +8,7 @@ const Breadcumb = (props) => {
             <div className={classes.navigateArray}>
                 {props.navigateArray &&
                     props.navigateArray.map((item) => (
-                        <NavLink to={item.link} activeClassName={classes.active}>
+                        <NavLink to={item.link} key={Math.random()} activeClassName={classes.active}>
                             {item.name} {">"}
                         </NavLink>
                     ))}

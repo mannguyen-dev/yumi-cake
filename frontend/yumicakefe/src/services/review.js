@@ -3,6 +3,7 @@ import { BACKEND_URL } from "../utility/Constants";
 
 class ReviewDataService {
     postReview(product_id, title, content, stars, token) {
+        const date = new Date();
         return axios.post(
             `${BACKEND_URL}/reviews`,
             {
@@ -10,6 +11,7 @@ class ReviewDataService {
                 title,
                 content,
                 stars,
+                date,
             },
             {
                 headers: {
@@ -29,9 +31,13 @@ class ReviewDataService {
     //         data: { review_id: id, user_id: userId },
     //     });
     // }
-    // getRatings() {
-    //     return axios.get(`${url}/api/v1/movies/ratings`);
-    // }
+    getReviewsByProduct(productId, limit = 20, skip = 0) {
+        return axios.get(`${BACKEND_URL}/reviews?product=${productId}&limit=${limit}&skip=${skip}&sortBy=date:desc`);
+    }
+
+    getAllReviewsByProduct(productId) {
+        return axios.get(`${BACKEND_URL}/reviews?product=${productId}`);
+    }
 }
 
 export default new ReviewDataService();

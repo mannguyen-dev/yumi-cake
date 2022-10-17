@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classes from "./CakeImage.module.css";
 
 const CakeImage = (props) => {
     const [bigImage, setBigImage] = useState(null);
+    const cake = props.cake;
+
+    useEffect(() => {
+        if (cake) setBigImage(cake.images[0]);
+    }, [cake]);
 
     if (!props.cake) {
         return;

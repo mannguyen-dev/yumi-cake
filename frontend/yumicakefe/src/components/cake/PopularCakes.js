@@ -14,7 +14,7 @@ const PopularCakes = (props) => {
             CakesDataService.getByCategory(category, 4, page * 4)
                 .then((response) => {
                     setCakes(response.data);
-                    console.log(response.data);
+                    // console.log(response.data);
                 })
                 .catch((e) => {
                     console.log(e);

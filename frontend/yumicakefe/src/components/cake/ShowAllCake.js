@@ -39,7 +39,7 @@ const ShowAllCakes = (props) => {
                     console.log(e);
                 });
         }
-    }, [page, searchInfo, searchByCategory, cakes]);
+    }, [page, searchInfo, searchByCategory]);
 
     const nextPageHandler = () => {
         setPage(page + 1);

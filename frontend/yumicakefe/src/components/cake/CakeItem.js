@@ -11,7 +11,8 @@ const CakeItem = (props) => {
     const dispatch = useDispatch();
 
     const seeMoreHandler = () => {
-        history.push(`products/id/${props.cake._id}`);
+        history.push(`/products/id/${props.cake._id}`);
+        window.scrollTo(0, 0);
     };
 
     const imageUrl = `${BACKEND_URL}/products/id/${props.cake._id}/images/0`;

@@ -17,9 +17,9 @@ class UserDataService {
             phone,
         });
     }
-    // createReview(data) {
-    //     return axios.post(`${url}/api/v1/movies/review`, data);
-    // }
+    getUserById(id) {
+        return axios.get(`${BACKEND_URL}/users/${id}`);
+    }
     // updateReview(data) {
     //     return axios.put(`${url}/api/v1/movies/review`, data);
     // }
