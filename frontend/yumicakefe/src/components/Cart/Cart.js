@@ -25,13 +25,15 @@ const Cart = (props) => {
 
         for (const cake of cart.items) {
             details.push({
-                _id: cake.id,
+                product_id: cake.id,
                 amount: cake.quantity,
                 weight: cake.weight,
                 price: cake.price,
                 message: cake.message ? cake.message : " ",
             });
+            console.log(cake.id);
         }
+        console.log(details);
 
         try {
             const response = OrderDataService.postOrder(details, cart.location, authToken);

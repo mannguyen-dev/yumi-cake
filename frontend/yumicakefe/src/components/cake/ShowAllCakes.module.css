@@ -26,22 +26,16 @@
 
 .searchResult {
     display: flex;
-    width: 100%;
-    margin: 20px auto 0px;
-    gap: 20px;
+    gap: 4px;
     font-size: 20px;
     align-items: center;
-}
-
-.searchResult .title {
-    font-weight: bold;
 }
 
 .searchResult button {
     border: 1px solid #868e96;
     padding: 4px;
     border-radius: 8px;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .searchResult button:hover,
@@ -58,5 +52,12 @@
 .feature {
     display: flex;
     width: 1120px;
-    margin: auto;
+    gap: 24px;
+    margin: 20px auto 0px;
+    align-items: center;
+}
+
+.titleBig {
+    font-weight: bold;
+    font-size: 20px;
 }

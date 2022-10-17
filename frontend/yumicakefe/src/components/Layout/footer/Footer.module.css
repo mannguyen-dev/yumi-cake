@@ -15,11 +15,20 @@
     margin: auto;
 }
 .yumicakelogo {
-    font-size: 44px;
+    font-size: 40px;
     color: #495057;
     font-weight: bold;
     text-decoration: none;
 }
+
+.yumicakelogo a:hover,
+.yumicakelogo a:active {
+    font-size: 40px;
+    color: #f76707;
+    font-weight: bold;
+    text-decoration: none;
+}
+
 .footercontent {
     padding: 3em 0 0;
 }

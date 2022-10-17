@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import PopularCakes from "../components/cake/PopularCakes";
+import CakeSection from "../components/cake/CakeSection";
 import SliderCake from "../components/cake/SliderCake";
 
 const Home = () => {
@@ -7,8 +7,8 @@ const Home = () => {
         <div>
             <Fragment>
                 <SliderCake />
-                <PopularCakes title="Phổ biến" typeCake="Popular" />
-                <PopularCakes title="Đang thịnh hành" typeCake="Trending" />
+                <CakeSection title="Phổ biến" typeCake="Popular" />
+                <CakeSection title="Đang thịnh hành" typeCake="Trending" />
             </Fragment>
         </div>
     );

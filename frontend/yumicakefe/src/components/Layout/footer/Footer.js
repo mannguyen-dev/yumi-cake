@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import classes from "./Footer.module.css";
 
 const Footer = () => {
@@ -6,7 +7,9 @@ const Footer = () => {
             <div className={classes.footerimg}>
                 <div className={classes.footercontent}>
                     <div className={classes.yumicakefooter}>
-                        <div className={classes.yumicakelogo}>Yumi Cake</div>
+                        <div className={classes.yumicakelogo}>
+                            <Link to="/">Yumi Cake</Link>
+                        </div>
                         <div className={classes.footerheading}>
                             Thông tin
                             <div className={classes.footerdisc}>Về chúng tôi</div>

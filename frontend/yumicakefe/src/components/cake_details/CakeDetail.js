@@ -5,7 +5,7 @@ import CakesDataService from "../../services/cake";
 import { Fragment, useState } from "react";
 import { useEffect } from "react";
 import CakeInfo from "./CakeInfo";
-import PopularCakes from "../cake/PopularCakes";
+import CakeSection from "../cake/CakeSection";
 import Breadcumb from "../Layout/breadcumb/breadcumb";
 import ReviewContainer from "../review/ReviewContainer";
 import ReviewDataService from "../../services/review";
@@ -74,7 +74,7 @@ const CakeDetail = () => {
                 <CakeImage cake={cake} />
                 <CakeInfo cake={cake} numReview={numReview} rating={rating} />
             </section>
-            <PopularCakes title="Có liên quan" typeCake="Category" category={category} />
+            <CakeSection title="Có liên quan" typeCake="Category" category={category} />
             <ReviewContainer cake={cake} numReview={numReview} rating={rating} />
         </Fragment>
     );

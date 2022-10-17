@@ -74,7 +74,7 @@ const ShowAllCakes = (props) => {
 
     const searchResult = (
         <div className={classes.searchResult}>
-            <div className={classes.title}>Kết quả tìm:</div>
+            <div className={classes.titleBig}>Kết quả tìm:</div>
             {searchInfo && <div>Từ khóa "{searchInfo}"</div>}
             {searchByCategory && <div>Danh mục "{searchByCategory}"</div>}
         </div>
@@ -85,14 +85,19 @@ const ShowAllCakes = (props) => {
             <Breadcumb titleInfo="Khám phá" navigateArray={navigateArray} />
             <div className={classes.feature}>
                 {(searchByCategory || searchInfo) && searchResult}
+                <div className={classes.titleBig}>Sắp xếp: </div>
                 <div className={classes.searchResult}>
-                    <div className={classes.title}>Sắp xếp: </div>
                     <div className={classes.title}>Tên </div>
+                    <button onClick={ascHandler}>A - Z</button>
+                    <button onClick={descHandler}>Z - A</button>
+                </div>
+                <div className={classes.searchResult}>
+                    <div className={classes.title}>Giá </div>
                     <button onClick={ascHandler}>Tăng dần</button>
                     <button onClick={descHandler}>Giảm dần</button>
                 </div>
                 <div className={classes.searchResult}>
-                    <div className={classes.title}>Giá </div>
+                    <div className={classes.title}>Bán chạy </div>
                     <button onClick={ascHandler}>Tăng dần</button>
                     <button onClick={descHandler}>Giảm dần</button>
                 </div>
