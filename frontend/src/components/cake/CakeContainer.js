@@ -5,7 +5,7 @@ const CakeContainer = (props) => {
     const isEndList = props.cakes.length < 4;
     const isBeginList = props.page === 0;
 
-    console.log(props.cakes);
+    // console.log(props.cakes);
 
     return (
         <div className={classes.cakeContainer}>
