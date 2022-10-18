@@ -29,6 +29,6 @@
 
 2.  khởi chạy trang web bằng lệnh:
 
-          npm run star
+          npm run start
           
 Lưu ý: frontend hiện lại đang sử dụng backend từ heroku, muốn chạy từ bakend localhost thì phải sửa lại đường link trong src/utility/constants
