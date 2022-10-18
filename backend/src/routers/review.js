@@ -1,10 +1,10 @@
 const express = require("express");
-const router = new express.Router();
 const auth = require("../middleware/auth");
 const Review = require("../models/review");
 const multer = require("multer");
 const sharp = require("sharp");
 
+const router = new express.Router();
 const upload = multer({
     limits: {
         fileSize: 10_000_000,
@@ -66,7 +66,7 @@ router.get("/reviews", async (req, res) => {
     const sort = {};
 
     if (req.query.product) {
-        match.product = req.query.product;
+        match.product_id = req.query.product;
     }
 
     if (req.query.user) {
