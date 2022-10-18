@@ -32,3 +32,8 @@
           npm run start
           
 Lưu ý: frontend hiện lại đang sử dụng backend từ heroku, muốn chạy từ bakend localhost thì phải sửa lại đường link trong src/utility/constants
+
+
+LINK DEMO: 
+Backend: https://yumicake-backend.herokuapp.com/
+Frontend: https://yumicake-frontend.netlify.app/
