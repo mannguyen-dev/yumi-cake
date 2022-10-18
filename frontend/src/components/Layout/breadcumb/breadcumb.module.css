@@ -1,0 +1,30 @@
+.corporatebanner {
+    padding: 8px;
+    justify-content: center;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(90deg, #ffe8cc, #f76707, #f76707 65%, #ffa94d);
+    font-size: 32px;
+    color: white;
+}
+
+.navigateArray {
+    display: flex;
+    font-size: 16px;
+    justify-content: center;
+    gap: 12px;
+}
+
+.navigateArray .active {
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+.active:hover,
+.active:active {
+    color: #495057;
+    background-color: #fff;
+}

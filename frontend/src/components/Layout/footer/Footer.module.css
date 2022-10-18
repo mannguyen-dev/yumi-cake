@@ -1,0 +1,115 @@
+.footerallcontent {
+    background-image: url(https://media.bakingo.com/ssr-static/footer.png);
+    height: 300px;
+    background-size: cover;
+    width: 100%;
+    object-fit: contain;
+    margin-top: 70px;
+    background-color: #ffd8a8;
+}
+.yumicakefooter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 1140px;
+    margin: auto;
+}
+.yumicakelogo {
+    font-size: 40px;
+    color: #495057;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.yumicakelogo a:hover,
+.yumicakelogo a:active {
+    font-size: 40px;
+    color: #f76707;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.footercontent {
+    padding: 3em 0 0;
+}
+.footerheading {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.56;
+    color: #292640;
+    opacity: 0.8;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.footerdisc {
+    color: #5e5e5e;
+    opacity: 0.8;
+    font-size: 18px;
+    text-align: left;
+    font-weight: 300;
+}
+.logos {
+    display: flex;
+    margin: 10px 0 10px;
+    cursor: pointer;
+    gap: 16px;
+}
+
+.footerfacebook {
+    background-image: url(https://media.bakingo.com/images/common/sprite_bk.svg);
+    width: 26px;
+    height: 26px;
+    background-position-y: -42px;
+    background-position-x: -871px;
+}
+.footertwitter {
+    background-image: url(https://media.bakingo.com/images/common/sprite_bk.svg);
+    width: 26px;
+    height: 26px;
+    background-position-y: -42px;
+    background-position-x: -897px;
+}
+.footerinstagram {
+    background-image: url(https://media.bakingo.com/images/common/sprite_bk.svg);
+    width: 26px;
+    height: 26px;
+    background-position-y: -42px;
+    background-position-x: -931px;
+}
+.footerpinterest {
+    background-image: url(https://media.bakingo.com/images/common/sprite_bk.svg);
+    width: 26px;
+    height: 26px;
+    background-position-y: -42px;
+    background-position-x: -960px;
+}
+.footerheading2 {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.56;
+    color: #292640;
+    opacity: 0.8;
+    text-align: left;
+}
+.sub {
+    margin-top: 4px;
+    border: 1px solid #f76707;
+    background-color: #f76707;
+    width: 240px;
+    padding: 4px;
+    font-size: 20px;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+}
+
+.form-control {
+    padding: 8px;
+    width: 240px;
+    border-radius: 4px;
+    font-size: 16px;
+}

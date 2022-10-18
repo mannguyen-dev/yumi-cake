@@ -7,7 +7,7 @@ const sendWelcomeEmail = (email, name) => {
         to: email,
         from: "mannguyen.dev@gmail.com",
         subject: "Cảm ơn bạn đã tham gia!",
-        html: `<h1>Chào mừng bạn đến với YumiCake, ${name}. Hãy tận dụng những ưu đãi hấp dẫn đang chờ bạn!</h1><p>Truy cập ngay: <a href="#">link<a></p>`,
+        html: `<h1>Chào mừng bạn đến với YumiCake!. Hãy tận dụng những ưu đãi hấp dẫn đang chờ bạn!</h1><p>Truy cập ngay: <a href="https://yumicake-frontend.netlify.app/">link<a></p>`,
     });
 };
 

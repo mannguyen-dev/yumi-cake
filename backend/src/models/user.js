@@ -2,13 +2,11 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const Task = require("../models/task");
 
 const userSchema = new mongoose.Schema(
     {
         name: {
             type: String,
-            required: true,
             trim: true,
         },
         email: {
@@ -115,12 +113,6 @@ userSchema.methods.generateAuthToken = async function () {
 
     return token;
 };
-
-userSchema.virtual("tasks", {
-    ref: "Task",
-    localField: "_id",
-    foreignField: "owner",
-});
 
 // overide toJSON method
 userSchema.methods.toJSON = function () {

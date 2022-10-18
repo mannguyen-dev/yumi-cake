@@ -1,0 +1,65 @@
+.reviewCard {
+    padding: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 14px;
+    background-color: white;
+    margin: 0 0 20px 30px;
+    width: 90%;
+
+    display: flex;
+    gap: 8px;
+}
+
+hr.rounded {
+    border-top: 2px solid #bbb;
+    width: 90%;
+    margin: auto;
+}
+
+.reviewContent {
+    width: 70%;
+}
+
+.reviewContent .star {
+    font-weight: bold;
+    color: #f76707;
+    font-size: 18px;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    margin: 4px 24px 8px;
+    align-items: center;
+}
+
+.title h4 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.content {
+    margin: 4px 0px 8px 24px;
+    text-align: left;
+}
+
+.reviewInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    inline-size: 30%;
+    overflow-wrap: break-word;
+    text-align: left;
+}
+
+.reviewInfo .name {
+    font-weight: bold;
+    margin-top: 6px;
+    font-size: 16px;
+}
+
+.reviewInfo .date {
+    margin-top: 6px;
+    font-size: 16px;
+    text-align: left;
+}

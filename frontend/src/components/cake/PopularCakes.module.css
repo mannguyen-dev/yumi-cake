@@ -1,0 +1,13 @@
+.container h2 {
+    color: #343a40;
+    padding-bottom: 0.25rem;
+    border-bottom: 4px solid #ffa94d;
+    width: 1200px;
+    margin: 60px auto 32px;
+    font-size: 36px;
+}
+
+.container {
+    width: 1200px;
+    margin: 60px auto 60px;
+}

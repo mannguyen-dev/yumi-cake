@@ -1,0 +1,199 @@
+.container h2 {
+    color: #343a40;
+    padding-bottom: 0.25rem;
+    border-bottom: 4px solid #ffa94d;
+    width: 1200px;
+    margin: 60px auto 30px;
+    font-size: 36px;
+}
+
+.container {
+    width: 1200px;
+    margin: auto;
+}
+
+.container .rate {
+    display: flex;
+    font-size: 20px;
+    gap: 16px;
+}
+
+.container .rate .star {
+    background-color: green;
+    padding: 2px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #fff;
+    font-size: 18px;
+}
+
+.container .rate a {
+    border-bottom: 1px solid;
+    font-weight: bold;
+    color: #495057;
+}
+
+.container .rate a:hover {
+    color: #e67700;
+    cursor: pointer;
+}
+
+.reviewContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.myReview {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.myReview .title {
+    margin-top: 16px;
+    font-size: 28px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.formReview .item {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 12px;
+}
+
+.formReview .item input {
+    border: 1px solid #343a40;
+    width: 90%;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.formReview textarea {
+    height: 100px;
+    border: 1px solid #343a40;
+    width: 90%;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.formReview label {
+    margin-top: 8px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #495057;
+    margin-left: 4px;
+}
+
+.formReview button {
+    background-color: #ffa94d;
+    width: 90%;
+    margin: 20px 50px 0 0;
+    justify-self: right;
+    padding: 8px;
+    font-weight: bold;
+    font-size: 22px;
+    border-radius: 12px;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.formReview button:hover,
+.formReview button:hover {
+    background-color: #e67700;
+}
+
+.text {
+    text-align: left;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.text a {
+    color: #e67700 !important;
+    font-weight: bold;
+    border-bottom: 1px solid;
+}
+
+.text a:hover,
+.text a:active {
+    color: #ffa94d !important;
+    cursor: pointer;
+}
+
+.form-control input,
+.form-control label {
+    display: block;
+}
+
+.form-control input,
+.form-control select {
+    font: inherit;
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #495057;
+    width: 300px;
+    max-width: 100%;
+}
+
+.form-control input:focus {
+    outline: none;
+    border-color: #495057;
+    background-color: #f8f9fa;
+}
+
+.form-actions button {
+    border: 1px solid #fd7e14;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+
+.form-actions button:hover,
+.form-actions button:active {
+    background-color: #d9480f;
+    border-color: #d9480f;
+}
+
+.form-actions button:disabled,
+.form-actions button:disabled:hover,
+.form-actions button:disabled:active {
+    background-color: #ccc;
+    color: #292929;
+    border-color: #ccc;
+    cursor: not-allowed;
+}
+
+.invalid input,
+.invalid textarea {
+    border: 1px solid #b40e0e;
+    background-color: #fddddd;
+}
+
+.invalid input:focus,
+.invalid textarea:focus {
+    border-color: #ff8800;
+    background-color: #fbe8d2;
+}
+
+.error-text {
+    color: #b40e0e;
+}
+
+.pagePagination {
+    display: flex;
+    margin: 30px auto 50px;
+    gap: 12px;
+    justify-content: center;
+}
+
+.pagePagination button {
+    height: 36px;
+    width: 40px;
+    background-color: transparent;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    font-size: 18px;
+}

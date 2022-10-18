@@ -139,7 +139,7 @@ router.get("/products/trending", async (req, res) => {
 });
 
 //GET product detail by product id
-router.get("/products/detail/:id", async (req, res) => {
+router.get("/products/id/:id", async (req, res) => {
     const _id = req.params.id;
 
     try {
@@ -173,7 +173,7 @@ router.get("/products/detail/:id", async (req, res) => {
 // });
 
 //Get Image by product id and image number
-router.get("/products/:id/images/:image", async (req, res) => {
+router.get("/products/id/:id/images/:image", async (req, res) => {
     const _id = req.params.id;
 
     try {
@@ -195,7 +195,7 @@ router.get("/products/:id/images/:image", async (req, res) => {
 });
 
 //Update product by id
-router.patch("/products/:id", async (req, res) => {
+router.patch("/products/id/:id", async (req, res) => {
     const updates = Object.keys(req.body);
     const allowedUpdates = ["description", "name", "size", "categories"];
     const isValidOperation = updates.every((update) => allowedUpdates.includes(update));
@@ -223,7 +223,7 @@ router.patch("/products/:id", async (req, res) => {
 });
 
 // Delete product by id
-router.delete("/products/:id", auth, async (req, res) => {
+router.delete("/products/id/:id", auth, async (req, res) => {
     try {
         const product = await Product.findByIdAndDelete(req.params.id);
 
@@ -253,10 +253,42 @@ const getProduct = async (id) => {
 // GET distinct product
 router.get("/products/popular", async (req, res) => {
     try {
-        const details = await Order.distinct("details.product_id");
+        let limit = 20;
+        if (req.query.limit) {
+            limit = parseInt(req.query.limit);
+        }
 
-        const promises = details.map(async (item) => {
-            const res = await Product.findById(mongoose.Types.ObjectId(item));
+        let skip = 0;
+        if (req.query.skip) {
+            skip = parseInt(req.query.skip);
+        }
+
+        const details = await Order.find({}).select({ details: 1 });
+
+        let listDetails = [];
+
+        for (const item of details) {
+            listDetails = listDetails.concat(item.details);
+        }
+
+        let listItem = [];
+
+        for (const item of listDetails) {
+            const existed = listItem.find((i) => i.product_id.toString() === item.product_id.toString());
+
+            if (existed) {
+                existed.amount += item.amount;
+            } else {
+                listItem.push({ product_id: item.product_id, amount: item.amount });
+            }
+        }
+
+        listItem.sort((a, b) => b.amount - a.amount);
+
+        listItem = listItem.slice(skip, limit + skip);
+
+        const promises = listItem.map(async (item) => {
+            const res = await Product.findById(mongoose.Types.ObjectId(item.product_id));
             return res;
         });
         const products = await Promise.all(promises);
