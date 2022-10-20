@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import CakeContainer from "./CakeContainer";
-import classes from "./PopularCakes.module.css";
+import classes from "./CakeSection.module.css";
 import CakesDataService from "../../services/cake";
 
 const CakeSection = (props) => {

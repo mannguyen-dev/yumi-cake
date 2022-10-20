@@ -16,7 +16,11 @@ const cartSlide = createSlice({
         addItemToCart(state, action) {
             const newItem = action.payload;
             const existingItem = state.items.find((item) => {
-                return item.id === newItem.id && item.message === newItem.message && item.weight === newItem.weight;
+                return (
+                    item.product_id === newItem.product_id &&
+                    item.message === newItem.message &&
+                    item.weight === newItem.weight
+                );
             });
             state.totalQuantity++;
             state.changed = true;
