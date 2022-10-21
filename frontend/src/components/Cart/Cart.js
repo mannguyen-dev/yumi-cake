@@ -57,7 +57,7 @@ const Cart = (props) => {
                     <CartItem
                         key={Math.random()}
                         item={{
-                            id: item.id,
+                            product_id: item.product_id,
                             title: item.name,
                             quantity: item.quantity,
                             total: item.totalPrice,

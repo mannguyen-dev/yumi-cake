@@ -4,16 +4,16 @@ import { cartActions } from "../../store/cart-slice";
 import { formatCurrency } from "../../utility/FormatCurrency";
 
 const CartItem = (props) => {
-    const { title, quantity, total, price, id, weight, message } = props.item;
+    const { title, quantity, total, price, product_id, weight, message } = props.item;
 
     const dispatch = useDispatch();
 
     const removeItemHandler = () => {
-        dispatch(cartActions.removeItemFromCart({ id, weight, message }));
+        dispatch(cartActions.removeItemFromCart({ product_id, weight, message }));
     };
 
     const addItemHandler = () => {
-        dispatch(cartActions.addItemToCart({ id, title, price, weight, message }));
+        dispatch(cartActions.addItemToCart({ product_id, title, price, weight, message }));
     };
 
     const titleFixed = title.length < 22 ? `${title}` : `${title.slice(0, 22)}...`;
