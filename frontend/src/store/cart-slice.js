@@ -16,8 +16,13 @@ const cartSlide = createSlice({
         addItemToCart(state, action) {
             const newItem = action.payload;
             const existingItem = state.items.find((item) => {
-                return item.id === newItem.id && item.message === newItem.message && item.weight === newItem.weight;
+                return (
+                    item.product_id === newItem.product_id &&
+                    item.message === newItem.message &&
+                    item.weight === newItem.weight
+                );
             });
+
             state.totalQuantity++;
             state.changed = true;
 
@@ -43,14 +48,23 @@ const cartSlide = createSlice({
         removeItemFromCart(state, action) {
             const rmItem = action.payload;
             const existingItem = state.items.find((item) => {
-                return item.id === rmItem.id && item.message === rmItem.message && item.weight === rmItem.weight;
+                return (
+                    item.product_id === rmItem.product_id &&
+                    item.message === rmItem.message &&
+                    item.weight === rmItem.weight
+                );
             });
+
             state.totalQuantity--;
             state.changed = true;
             if (existingItem.quantity === 1) {
                 state.items = state.items.filter(
                     (item) =>
-                        !(item.id === rmItem.id && item.message === rmItem.message && item.weight === rmItem.weight)
+                        !(
+                            item.product_id === rmItem.product_id &&
+                            item.message === rmItem.message &&
+                            item.weight === rmItem.weight
+                        )
                 );
             } else {
                 existingItem.quantity--;
