@@ -1,1 +1,1 @@
-export const BACKEND_URL = "https://yumicake-backend.herokuapp.com";
+export const BACKEND_URL = "https://backend-service-lm1y.onrender.com";
