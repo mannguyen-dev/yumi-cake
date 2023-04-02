@@ -50,7 +50,10 @@ const CakeInfo = (props) => {
     };
 
     const searchByCategoryHandler = (event) => {
-        const searchByCategory = event.target.innerText.slice(0, -2);
+        const uri = event.target.href;
+        const catId = uri.slice(uri.indexOf("category=") + 9);
+        const searchByCategory = catId;
+
         dispatch(searchActions.setCategory({ searchByCategory }));
     };
 
@@ -98,13 +101,13 @@ const CakeInfo = (props) => {
                 <span>Danh mục: </span>
                 {cake.categories.map((item) => (
                     <Link
-                        to={`/products?category=${item}`}
+                        to={`/products?category=${item._id}`}
                         href
                         key={Math.random()}
                         onClick={searchByCategoryHandler}
                         className={classes.categories}
                     >
-                        {item}
+                        {item.name}
                         {", "}
                     </Link>
                 ))}
